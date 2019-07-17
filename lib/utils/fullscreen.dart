@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
 
-void setFullScreen() {
+void fullScreen() {
   SystemChrome.setEnabledSystemUIOverlays([]);
 }
