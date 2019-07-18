@@ -44,6 +44,9 @@ flutter:
   assets:
     - assets/images/br.png
     - assets/images/blur.jpg
+    - assets/images/sale.png
+    - assets/images/luxe.jpg
+    - assets/videos/intro.mp4
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -79,5 +82,7 @@ flutter:
     - family: FuturaPT
       fonts:
         - asset: assets/fonts/FuturaPTMedium.otf
+        - asset: assets/fonts/FuturaPTLight.otf
+          weight: 100
         - asset: assets/fonts/FuturaPTBold.otf
           weight: 700

@@ -1,4 +1,4 @@
-import 'package:asos_ui/app/screens/home.dart';
+import 'package:asos_ui/app/screens/main.dart';
 import 'package:asos_ui/app/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -17,8 +17,7 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        'https://video.asos-media.com/products/ASOS/_media_/6b2/6b25d75a-ef03-41ae-86cf-3a7a019d8c96.mp4')
+    _controller = VideoPlayerController.asset('assets/videos/intro.mp4')
       ..play()
       ..setLooping(true)
       ..initialize().then((_) {
@@ -236,7 +235,7 @@ class _IntroScreenState extends State<IntroScreen> {
 
   void _goToHome() {
     Route route = MaterialPageRoute(
-      builder: (context) => HomeScreen(),
+      builder: (context) => MainScreen(),
     );
     Navigator.push(context, route);
   }

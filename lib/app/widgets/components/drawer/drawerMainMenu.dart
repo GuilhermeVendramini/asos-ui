@@ -4,7 +4,13 @@ Widget drawerMainMenu(BuildContext context) {
   Color _iconColor = Colors.black;
 
   return Container(
-    padding: EdgeInsets.all(20.0),
+    decoration: BoxDecoration(
+        border: Border(
+            bottom: BorderSide(
+      color: Colors.grey[300],
+      width: 10.0,
+    ))),
+    padding: EdgeInsets.all(10.0),
     alignment: Alignment.topLeft,
     child: Column(
       children: <Widget>[
