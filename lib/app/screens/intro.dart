@@ -1,4 +1,5 @@
-import 'package:asos_ui/utils/portraitScreen.dart';
+import 'package:asos_ui/app/screens/home.dart';
+import 'package:asos_ui/app/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -10,6 +11,8 @@ class IntroScreen extends StatefulWidget {
 class _IntroScreenState extends State<IntroScreen> {
   VideoPlayerController _controller;
   Color _textColor = Colors.white;
+  Color _transparent = Colors.transparent;
+  Color _buttonColor = Colors.black.withOpacity(0.4);
 
   @override
   void initState() {
@@ -25,8 +28,6 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
-    portraitScreen();
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -68,8 +69,77 @@ class _IntroScreenState extends State<IntroScreen> {
               color: _textColor,
             ),
           ),
+          SizedBox(
+            height: 20.0,
+          ),
+          _appSettings(),
         ],
       ),
+    );
+  }
+
+  Widget _appSettings() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          child: RaisedButton(
+            color: _transparent,
+            elevation: 0.0,
+            onPressed: () {
+              Route route = MaterialPageRoute(
+                builder: (context) => SettingsScreen(),
+              );
+              Navigator.push(context, route);
+            },
+            child: Row(
+              children: <Widget>[
+                Image(
+                  image: AssetImage(
+                    'assets/images/br.png',
+                  ),
+                  height: 20.0,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  'Brazil, \$ USD',
+                  style: TextStyle(
+                    color: _textColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Text(
+          '|',
+          style: TextStyle(
+            color: _textColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Container(
+          child: RaisedButton(
+            color: _transparent,
+            elevation: 0.0,
+            onPressed: () {
+              Route route = MaterialPageRoute(
+                builder: (context) => SettingsScreen(),
+              );
+              Navigator.push(context, route);
+            },
+            child: Text(
+              'CHANGE',
+              style: TextStyle(
+                color: _textColor,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -80,6 +150,8 @@ class _IntroScreenState extends State<IntroScreen> {
           width: 260.0,
           height: 50.0,
           child: RaisedButton(
+            color: _buttonColor,
+            onPressed: _goToHome,
             child: Text(
               'WOMEN',
               style: TextStyle(
@@ -96,6 +168,8 @@ class _IntroScreenState extends State<IntroScreen> {
           width: 260.0,
           height: 50.0,
           child: RaisedButton(
+            color: _buttonColor,
+            onPressed: _goToHome,
             child: Text(
               'MEN',
               style: TextStyle(
@@ -158,5 +232,12 @@ class _IntroScreenState extends State<IntroScreen> {
             alignment: Alignment.center,
             child: CircularProgressIndicator(),
           );
+  }
+
+  void _goToHome() {
+    Route route = MaterialPageRoute(
+      builder: (context) => HomeScreen(),
+    );
+    Navigator.push(context, route);
   }
 }
