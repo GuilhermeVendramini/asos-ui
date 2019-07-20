@@ -44,12 +44,12 @@ class _IntroScreenState extends State<IntroScreen> {
     return Positioned(
       right: 0.0,
       left: 0.0,
-      bottom: 40.0,
+      bottom: 20.0,
       child: Column(
         children: <Widget>[
           _shopIn(),
           SizedBox(
-            height: 60.0,
+            height: 40.0,
           ),
           _buttons(),
         ],
@@ -69,7 +69,7 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
           ),
           SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
           _appSettings(),
         ],
@@ -196,7 +196,7 @@ class _IntroScreenState extends State<IntroScreen> {
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 60.0),
+        padding: EdgeInsets.only(top: 20.0),
         child: Text(
           'asos',
           style: TextStyle(

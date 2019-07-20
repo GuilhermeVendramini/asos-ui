@@ -1,3 +1,4 @@
+import 'package:asos_ui/app/screens/categories.dart';
 import 'package:asos_ui/app/screens/home.dart';
 import 'package:asos_ui/app/widgets/components/drawer/buildDrawer.dart';
 import 'package:asos_ui/app/widgets/components/utils/buildAppBar.dart';
@@ -23,7 +24,7 @@ class _MainScreenState extends State<MainScreen> {
           body: TabBarView(
             children: <Widget>[
               HomeScreen(),
-              HomeScreen(),
+              CategoriesScreen(),
               HomeScreen(),
             ],
           ),
