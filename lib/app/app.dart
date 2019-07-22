@@ -1,4 +1,5 @@
 import 'package:asos_ui/app/controllers/categories.dart';
+import 'package:asos_ui/app/controllers/newProducts.dart';
 import 'package:asos_ui/app/controllers/recommended.dart';
 import 'package:asos_ui/app/screens/intro.dart';
 import 'package:asos_ui/utils/navigationBar.dart';
@@ -16,6 +17,8 @@ class App extends StatelessWidget {
             builder: (_) => RecommendedService()),
         ChangeNotifierProvider<CategoriesService>(
             builder: (_) => CategoriesService()),
+        ChangeNotifierProvider<NewProductsService>(
+            builder: (_) => NewProductsService()),
       ],
       child: MaterialApp(
         title: 'ASOS UI',

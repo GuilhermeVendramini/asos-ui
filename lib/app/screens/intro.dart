@@ -31,49 +31,30 @@ class _IntroScreenState extends State<IntroScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          _video(),
+          _video(width: MediaQuery.of(context).size.width),
+          _video(width: _controller.value.size?.width),
           _background(),
           _main(),
-          _box(),
-        ],
-      ),
-    );
-  }
-
-  Widget _box() {
-    return Positioned(
-      right: 0.0,
-      left: 0.0,
-      bottom: 20.0,
-      child: Column(
-        children: <Widget>[
-          _shopIn(),
-          SizedBox(
-            height: 40.0,
-          ),
-          _buttons(),
         ],
       ),
     );
   }
 
   Widget _shopIn() {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Text(
-            'SHOP IN',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: _textColor,
-            ),
+    return Column(
+      children: <Widget>[
+        Text(
+          'SHOP IN',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: _textColor,
           ),
-          SizedBox(
-            height: 10.0,
-          ),
-          _appSettings(),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        _appSettings(),
+      ],
     );
   }
 
@@ -183,28 +164,35 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 
   Widget _main() {
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          _brand(),
-        ],
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      padding: EdgeInsets.all(10.0),
+      alignment: Alignment.center,
+      child: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            _brand(),
+            SizedBox(
+              height: 40.0,
+            ),
+            _shopIn(),
+            SizedBox(
+              height: 40.0,
+            ),
+            _buttons(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _brand() {
-    return Align(
-      alignment: Alignment.topCenter,
-      child: Container(
-        padding: EdgeInsets.only(top: 20.0),
-        child: Text(
-          'asos',
-          style: TextStyle(
-            fontSize: 100.0,
-            fontWeight: FontWeight.w500,
-            color: _textColor,
-          ),
-        ),
+    return Text(
+      'asos',
+      style: TextStyle(
+        fontSize: 100.0,
+        fontWeight: FontWeight.w500,
+        color: _textColor,
       ),
     );
   }
@@ -212,16 +200,17 @@ class _IntroScreenState extends State<IntroScreen> {
   Widget _background() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.4),
+        color: Colors.black.withOpacity(0.2),
       ),
     );
   }
 
-  Widget _video() {
+  Widget _video({double width}) {
     return _controller.value.initialized
         ? Align(
             alignment: Alignment.center,
             child: Container(
+              width: width,
               child: VideoPlayer(
                 _controller,
               ),

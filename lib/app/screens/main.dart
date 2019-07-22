@@ -1,5 +1,6 @@
 import 'package:asos_ui/app/screens/categories.dart';
 import 'package:asos_ui/app/screens/home.dart';
+import 'package:asos_ui/app/screens/newProducts.dart';
 import 'package:asos_ui/app/widgets/components/drawer/buildDrawer.dart';
 import 'package:asos_ui/app/widgets/components/utils/buildAppBar.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
             children: <Widget>[
               HomeScreen(),
               CategoriesScreen(),
-              HomeScreen(),
+              NewProductsScreen(),
             ],
           ),
         ),
