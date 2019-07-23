@@ -1,4 +1,5 @@
 import 'package:asos_ui/app/models/newProducts.dart';
+import 'package:asos_ui/app/screens/product.dart';
 import 'package:flutter/material.dart';
 
 class NewProductsList extends StatelessWidget {
@@ -20,7 +21,12 @@ class NewProductsList extends StatelessWidget {
   Widget _buildItem(BuildContext context, NewProductsModel item) {
     return Material(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Route route = MaterialPageRoute(
+            builder: (context) => ProductScreen(),
+          );
+          Navigator.push(context, route);
+        },
         child: Container(
           padding: EdgeInsets.all(10.0),
           alignment: Alignment.centerLeft,

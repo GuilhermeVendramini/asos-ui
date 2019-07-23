@@ -1,4 +1,5 @@
 import 'package:asos_ui/app/models/categories.dart';
+import 'package:asos_ui/app/screens/product.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -30,7 +31,12 @@ class CategoriesList extends StatelessWidget {
     return Material(
       color: Colors.grey[200],
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Route route = MaterialPageRoute(
+            builder: (context) => ProductScreen(),
+          );
+          Navigator.push(context, route);
+        },
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
